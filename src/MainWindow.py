@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.QtCore import pyqtSlot
 from MainMenu import MainMenu
 from Locale import Locale
-l = Locale()
+loc = Locale()
 
 
 class MainWindow(QMainWindow):
@@ -13,16 +13,16 @@ class MainWindow(QMainWindow):
         main_menu = MainMenu(parent=self)
         self.setMenuBar(main_menu)
 
-        main_menu.about_qt.triggered.connect(self.about_qt)
         main_menu.about.triggered.connect(self.about)
+        main_menu.about_qt.triggered.connect(self.about_qt)
 
     @pyqtSlot()
     def about(self):
-        title = l.mw_name
-        text = l.mw_about
+        title = loc.helpbox_title
+        text = loc.helpbox_about
         QMessageBox.about(self, title, text)
 
     @pyqtSlot()
     def about_qt(self):
-        QMessageBox.aboutQt(self, l.mw_name)
+        QMessageBox.aboutQt(self, loc.helpbox_aboutqt)
 

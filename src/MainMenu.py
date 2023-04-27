@@ -1,20 +1,21 @@
 from PyQt5.QtWidgets import QMenuBar
 from Locale import Locale
-l = Locale()
+loc = Locale()
 
 class MainMenu(QMenuBar):
 
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        help_menu = self.addMenu(l.menubar_help)
+        help_menu = self.addMenu(loc.menubar_help)
 
-        self.__about = help_menu.addAction(l.menubar_about)
-        
-        # Wrong approach to expose inner variables to outside
-        self.about_qt = help_menu.addAction(l.menubar_aboutqt)
+        self.__about = help_menu.addAction(loc.menubar_about)
+        self.__about_qt = help_menu.addAction(loc.menubar_aboutqt)
 
-    # Correct approach: use property to get private variable
     @property
     def about(self):
         return self.__about
+
+    @property
+    def about_qt(self):
+        return self.__about_qt
