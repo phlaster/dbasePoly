@@ -1,16 +1,33 @@
 from PyQt5.QtWidgets import QMenuBar
-from Locale import Locale
-loc = Locale()
+from settings import Locale as loc
+
 
 class MainMenu(QMenuBar):
-
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        help_menu = self.addMenu(loc.menubar_help)
+        employees_menu = self.addMenu(loc.menu_employees)
+        self.__addEmpl = employees_menu.addAction(loc.menu_employees_add)
+        self.__removeEmpl = employees_menu.addAction(loc.menu_employees_fire)
+        self.__vacations = employees_menu.addAction(loc.menu_employees_vacations)
 
-        self.__about = help_menu.addAction(loc.menubar_about)
-        self.__about_qt = help_menu.addAction(loc.menubar_aboutqt)
+
+        help_menu = self.addMenu(loc.menu_help)
+        self.__about = help_menu.addAction(loc.menu_help_about)
+        self.__about_qt = help_menu.addAction(loc.menu_help_aboutqt)
+
+
+    @property
+    def addEmpl(self):
+        return self.__addEmpl
+
+    @property
+    def removeEmpl(self):
+        return self.__removeEmpl
+
+    @property
+    def vacations(self):
+        return self.__vacations
 
     @property
     def about(self):
