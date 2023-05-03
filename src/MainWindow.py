@@ -30,6 +30,10 @@ class MainWindow(QMainWindow):
         main_menu.about.triggered.connect(self.about)
         main_menu.about_qt.triggered.connect(self.about_qt)
 
+        # Create an instance of the View class and set it as the central widget
+        self.view = View()
+        self.setCentralWidget(self.view)
+
 
     @pyqtSlot()
     def addEmpl(self):
