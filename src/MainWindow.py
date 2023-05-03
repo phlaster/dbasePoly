@@ -37,8 +37,22 @@ class MainWindow(QMainWindow):
 
     @pyqtSlot()
     def addEmpl(self):
-        View()
-        # pass
+        dialog = Dialog(parent=self)
+        if dialog.exec_() == dialog.Accepted:
+            name = dialog._Dialog__name_edit.text()
+            birthday = dialog._Dialog__birthday_edit.text()
+            prof = dialog._Dialog__prof_edit.text()
+            query = QSqlQuery()
+            query.prepare('INSERT INTO staff (name, birthday, prof) VALUES (:name, :birthday, :prof)')
+            query.bindValue(':name', name)
+            query.bindValue(':birthday', birthday)
+            query.bindValue(':prof', prof)
+            if query.exec_():
+                QMessageBox.information(self, loc.n_employee, loc.a_addition)
+                self.view.model().setQuery('SELECT id, name, birthday, prof FROM staff')
+            else:
+                QMessageBox.warning(self, loc.n_employee, query.lastError().text())
+
 
     @pyqtSlot()
     def removeEmpl(self):

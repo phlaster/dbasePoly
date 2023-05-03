@@ -62,9 +62,9 @@ class Dialog(QDialog):
         layout1.addWidget(name_label)
         layout1.addWidget(self.__name_edit)
         layout1.addWidget(birthday_label)
-        layout1.addWidget(self.__birthday_label)
+        layout1.addWidget(self.__birthday_edit)
         layout1.addWidget(prof_label)
-        layout1.addWidget(self.__prof_label)
+        layout1.addWidget(self.__prof_edit)
 
         layout2 = QVBoxLayout()
         layout2.addWidget(ok_btn)
