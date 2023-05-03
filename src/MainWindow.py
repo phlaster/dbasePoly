@@ -1,4 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtSql import QSqlQuery
+
 from PyQt5.QtCore import pyqtSlot
 
 from Employees import Model, View, Dialog

@@ -73,3 +73,10 @@ class Dialog(QDialog):
         layout1.addLayout(layout2)
 
         cancel_btn.clicked.connect(self.reject)
+        ok_btn.clicked.connect(self.accept)
+
+    def get_data(self):
+        name = self.__name_edit.text()
+        birthday = self.__birthday_edit.text()
+        prof = self.__prof_edit.text()
+        return name, birthday, prof
