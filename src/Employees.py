@@ -27,9 +27,9 @@ class View(QTableView):
 
     @pyqtSlot()
     def add(self):
-        dia = Dialog(parent=self)
-        dia.exec()
-        # QMessageBox.information(self, loc.n_employee, loc.a_addition)
+        # dia = Dialog(parent=self)
+        # dia.exec()
+        QMessageBox.information(self, loc.n_employee, loc.a_addition)
 
     @pyqtSlot()
     def update(self):
@@ -80,3 +80,9 @@ class Dialog(QDialog):
         birthday = self.__birthday_edit.text()
         prof = self.__prof_edit.text()
         return name, birthday, prof
+
+    def check_fields(self):
+        if self.name_edit.text() and self.age_edit.text() and self.address_edit.text():
+            self.ok_button.setEnabled(True)
+        else:
+            self.ok_button.setEnabled(False)
