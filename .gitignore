@@ -1,20 +1,4 @@
-# Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-*.o
-
-# Distribution / packaging
-build/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Environment
-.venv
-
-# Settings
+venv/
+.vscode/
 settings*
